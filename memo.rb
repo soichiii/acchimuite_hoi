@@ -12,10 +12,10 @@
   file_name = gets.chomp
   
   puts"メモの内容を記入して下さい。Ctrl+Dで保存します。"
-  imput_memo = STDIN.readlines(chomp: true)
+  imput_memo = STDIN.read.chomp
  
   CSV.open("#{file_name}.csv" , "w") do |csv|
-  csv.puts imput_memo
+  csv.puts ["#{imput_memo}"]
 
   end
  
@@ -24,10 +24,10 @@
   file_name = gets.chomp
   
   puts"メモの内容を記入して下さい。Ctrl+Dで保存します。"
-  imput_memo = STDIN.readlines(chomp: true)
+  imput_memo = STDIN.read.chomp
 
-  CSV.open("#{file_name}.csv" , "a") do |csv|
-  csv.puts imput_memo
+  CSV.open("#{file_name}.csv" , "w") do |csv|
+  csv.puts ["#{imput_memo}"]
   end
   
   else
