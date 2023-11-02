@@ -1,5 +1,6 @@
   require "csv"  
 
+  
   puts "1(新規でメモを作成)2(既存のメモを編集する)"
   memo_type = gets.to_s
   puts "選択：" + memo_type
@@ -11,11 +12,11 @@
   file_name = gets.chomp
   
   puts"メモの内容を記入して下さい。Ctrl+Dで保存します。"
-  imput_memo = STDIN.read
-  memo = imput_memo.chomp
-  
+  imput_memo = STDIN.readlines(chomp: true)
+ 
   CSV.open("#{file_name}.csv" , "w") do |csv|
-  csv.puts ["#{memo}"]
+  csv.puts imput_memo
+
   end
  
   elsif input_number == "2"
@@ -23,11 +24,10 @@
   file_name = gets.chomp
   
   puts"メモの内容を記入して下さい。Ctrl+Dで保存します。"
-  imput_memo = STDIN.read
-  memo = imput_memo.chomp
-  
+  imput_memo = STDIN.readlines(chomp: true)
+
   CSV.open("#{file_name}.csv" , "a") do |csv|
-  csv.puts ["#{memo}"]
+  csv.puts imput_memo
   end
   
   else
