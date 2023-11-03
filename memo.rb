@@ -26,7 +26,7 @@
   puts"メモの内容を記入して下さい。Ctrl+Dで保存します。"
   imput_memo = STDIN.read.chomp
 
-  CSV.open("#{file_name}.csv" , "w") do |csv|
+  CSV.open("#{file_name}.csv" , "a") do |csv|
   csv.puts ["#{imput_memo}"]
   end
   
