@@ -28,7 +28,7 @@ def janken
     puts "あいこです。もう一度じゃんけんをします。"
     @janken_judge = "draw"
     janken  
-    sreturn true
+    return true
     
  elsif lose
     puts"じゃんけんに負けました。あっちむいて・・・"
